@@ -1,5 +1,8 @@
 @echo off
 
+CHCP 65001
+CLS
+
 :: BatchGotAdmin
 :-------------------------------------
 REM  --> Check for permissions
@@ -29,14 +32,29 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 
-echo Check File System
-sfc /scannow
+SET /P variable="Controllare File System? [s/n]"
+IF "%variable%"=="s" (
+    echo Controllo File System
+    sfc /scannow
+)
 
-echo Check Windows Integrity
-dism /online /cleanup-image /restorehealth
+SET /P variable="Controllare integrità Windows? [s/n]"
+IF "%variable%"=="s" (
+    echo Controllo integrità Windows
+    dism /online /cleanup-image /restorehealth
+)
 
-echo Check HardDisks errors
-chkdsk C: /scan /spotfix
-chkdsk D: /scan /spotfix
+SET /P variable="Controllare errori Hard disk? [s/n]"
+IF "%variable%"=="s" (
+    echo Controllo errori Hard Disks
+    chkdsk C: /scan /spotfix
+    chkdsk D: /scan /spotfix
+)
+
+SET /P variable="Controllare integrità RAM? [s/n]"
+IF "%variable%"=="s" (
+    echo Controllo integrità RAM
+    mdsched.exe
+)
 
 pause
