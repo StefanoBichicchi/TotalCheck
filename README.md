@@ -10,7 +10,7 @@ An useful script for resolving windows error
 4. Check RAM integrity (use memory diagnostic toolkit)
 
 ### Version 2.5
-- Add fix of chkdsk
+- Fix chkdsk
 
 ### Version 2.0
 - Add RAM check
