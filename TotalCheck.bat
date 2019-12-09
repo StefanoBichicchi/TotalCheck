@@ -32,29 +32,33 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 
-SET /P variable="Controllare File System? [s/n]"
+SET /P variable="Controllare File System? [s/n] "
 IF "%variable%"=="s" (
     echo Controllo File System
     sfc /scannow
+    echo
 )
 
-SET /P variable="Controllare integrità Windows? [s/n]"
+SET /P variable="Controllare integrità Windows? [s/n] "
 IF "%variable%"=="s" (
     echo Controllo integrità Windows
     dism /online /cleanup-image /restorehealth
+    echo
 )
 
-SET /P variable="Controllare errori Hard disk? [s/n]"
+SET /P variable="Controllare errori Hard disk? [s/n] "
 IF "%variable%"=="s" (
     echo Controllo errori Hard Disks
-    chkdsk C: /scan /spotfix
-    chkdsk D: /scan /spotfix
+    chkdsk C: /spotfix
+    chkdsk D: /spotfix
+    echo
 )
 
-SET /P variable="Controllare integrità RAM? [s/n]"
+SET /P variable="Controllare integrità RAM? [s/n] "
 IF "%variable%"=="s" (
     echo Controllo integrità RAM
     mdsched.exe
+    echo
 )
 
 pause
