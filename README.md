@@ -1,7 +1,7 @@
 # TotalCheck
 An useful script for resolving windows error
 
-**Using in only on Windows 10!**
+**Using it only on Windows 10!**
 
 ## Functions
 1. Check File System (run sfc)
